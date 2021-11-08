@@ -2,8 +2,15 @@ import React, { Component } from "react";
 import './style.css';
 
 class ListaDeCategorias extends Component {
+  componentDidMount(){
+    this.props.categorias.inscrever(this._novasCategorias.bind(this))
+  }
+
+  _novasCategorias(categorias){
+    console.log(categorias);
+  }
+
   _handleEventoInput(e) {
-    console.log(e.key);
     if (e.key === "Enter") {
       let valorCategoria = e.target.value;
       this.props.adicionarCategoria(valorCategoria);
